@@ -13,8 +13,11 @@ app.use(cors());
 app.use(express.json());
 
 const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: { rejectUnauthorized: false }
+    connectionString: process.env.POSTGRE_URL,
+    ssl: {
+        require: true, 
+        rejectUnauthorized: false 
+    }
 });
 
 app.get('/', async (req, res) => {
@@ -25,6 +28,14 @@ app.get('/', async (req, res) => {
         console.error(error);
         res.status(500).send("Error en la DB");
     }
+});
+
+pool.connect()
+    .then(() => {
+        console.log('✅ Conexión a PostgreSQL exitosa');
+    })
+    .catch((err) => {
+        console.error('❌ Error al conectar a PostgreSQL:', err);
 });
 
 app.listen(port, () => {
