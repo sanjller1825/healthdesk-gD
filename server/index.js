@@ -22,11 +22,11 @@ app.get('/', async (req, res) => {
         const result = await pool.query('SELECT NOW()');
         res.json({status: 'ok', time: result.rows[0]});
     }catch (error) {
-        console.error(errorMessage);
+        console.error(error);
         res.status(500).send("Error en la DB");
     }
 });
 
 app.listen(port, () => {
-    console.log(`🚀 Servidor corriendo en puerto ${PORT}`);
+    console.log(`🚀 Servidor corriendo en puerto ${port}`);
 });
