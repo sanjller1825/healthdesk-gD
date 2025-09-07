@@ -2,6 +2,11 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import pkg from "pg";
+import pacienteRoute from './routes/pacienteRoute.js';
+import userRoute from './routes/userRoute.js';
+import examenRoute from './routes/examenRoute.js';
+import consultaRoute from './routes/consultaRoute.js';
+import recetaRoute from './routes/recetaRoute.js';
 
 dotenv.config();
 const { Pool } = pkg;
@@ -20,24 +25,25 @@ const pool = new Pool({
     }
 });
 
-app.get('/', async (req, res) => {
-    try {
-        const result = await pool.query('SELECT NOW()');
-        res.json({status: 'ok', time: result.rows[0]});
-    }catch (error) {
-        console.error(error);
-        res.status(500).send("Error en la DB");
-    }
-});
-
 pool.connect()
     .then(() => {
-        console.log('✅ Conexión a PostgreSQL exitosa');
+        console.log('Conexión a PostgreSQL exitosa');
     })
     .catch((err) => {
-        console.error('❌ Error al conectar a PostgreSQL:', err);
+        console.error('Error al conectar a PostgreSQL:', err);
 });
 
-app.listen(port, () => {
-    console.log(`🚀 Servidor corriendo en puerto ${port}`);
+export default pool;
+
+app.use('/api', pacienteRoute);
+app.use('/api', userRoute);
+app.use('/api', examenRoute);
+app.use('/api', consultaRoute);
+app.use('/api', recetaRoute);
+
+app.listen(port, () => {console.log(`Servidor corriendo en puerto ${port}`);});
+
+app.use((req, res, next) => {
+  res.status(404).json({ message: "Endpoint no encontrado" });
 });
+
