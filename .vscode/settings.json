@@ -1,0 +1,16 @@
+{
+    "sqltools.connections": [
+        {
+            "pgOptions": {
+                "ssl": {
+                    "rejectUnauthorized": true
+                }
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "driver": "PostgreSQL",
+            "name": "healthdesksql",
+            "connectString": "postgresql://healthdeskdb_user:MxaPkYqY7Drun23ThTwQDkWOzNGSYRh4@dpg-d2rpseemcj7s73f8iq3g-a.virginia-postgres.render.com/healthdeskdb"
+        }
+    ]
+}
