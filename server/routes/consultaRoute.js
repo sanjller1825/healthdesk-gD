@@ -1,5 +1,5 @@
 import express from 'express';
-import { getConsultas, getConsultaById, createConsulta, updateConsulta, deleteConsulta } from '../controllers/consultas.controller.js';
+import { getConsultas, getConsultaById, createConsulta, updateConsulta, deleteConsulta } from '../controllers/consultaController.js';
 
 const router = express.Router();
 
