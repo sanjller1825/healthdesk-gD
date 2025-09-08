@@ -1,0 +1,156 @@
+/* --- General and Layout --- */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f7f9;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* --- Top Navigation Bar --- */
+.top-nav {
+  margin-left: 250px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.top-nav-links a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #666;
+  font-weight: 500;
+  padding: 5px 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.top-nav-links a:hover,
+.top-nav-links a.active {
+  color: #007bff;
+  border-bottom-color: #007bff;
+}
+
+/* --- Estilos Generales y Layout --- */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    background-color: #f3f4f6;
+}
+
+/* --- Barra Lateral (Sidebar) --- */
+.sidebar {
+    margin-top: -55px;
+    width: 250px;
+    background-color: #1f2937;
+    color: white;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #374151;
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.sidebar-logo img {
+    height: 32px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: #d1d5db;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-link:hover {
+    background-color: #374151;
+    color: white;
+}
+
+.nav-link.active {
+    background-color: #4b5563;
+    color: white;
+    font-weight: 600;
+}
+
+.nav-link svg {
+    margin-right: 0.75rem;
+    width: 20px;
+    height: 20px;
+}
+
+/* --- Barra de Navegación Superior --- */
+.navbar-content {
+    flex-grow: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.navbar-nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.navbar-link {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease;
+}
+
+.navbar-link:hover {
+    background-color: #e5e7eb;
+}
+
+.navbar-user {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #d1d5db;
+    border: 2px solid #3b82f6;
+}
+
+/* El main-content contendrá el contenido dinámico de la página */
+.main-content {
+  flex-grow: 1;
+  padding: 30px;
+}
